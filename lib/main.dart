@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +56,13 @@ class InfoTile extends StatelessWidget {
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+
+  Future<void> _bukaLink(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      debugPrint('Tidak bisa membuka $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +135,29 @@ class ProfilePage extends StatelessWidget {
               'Saya juga sedang belajar bahasa Jepang dan Inggris secara mandiri.',
               textAlign: TextAlign.justify,
               style: TextStyle(fontSize: 14, height: 1.5),
+            ),
+            const SizedBox(height: 24),
+                        const Text(
+              'Kontak',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () => _bukaLink('mailto:rahmatriyadiambis@gmail.com'),
+              icon: const Icon(Icons.email),
+              label: const Text('rahmatriyadiambis@gmail.com'),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () => _bukaLink('https://github.com/riyadiambis'),
+              icon: const Icon(Icons.code),
+              label: const Text('GitHub'),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () => _bukaLink('https://www.instagram.com/riyadi_ofisharu'),
+              icon: const Icon(Icons.camera_alt),
+              label: const Text('Instagram'),
             ),
             const SizedBox(height: 24),
           ],
