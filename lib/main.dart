@@ -111,6 +111,24 @@ class ProfilePage extends StatelessWidget {
               label: 'Minat',
               value: 'Mobile Development & Artificial Intelligence',
             ),
+                        const SizedBox(height: 16),
+            const Divider(),
+            const SizedBox(height: 8),
+            const Text(
+              'Tentang Saya',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Saya mahasiswa Informatika yang senang mengulik teknologi, '
+              'terutama pengembangan aplikasi mobile dan kecerdasan buatan. '
+              'Di luar kuliah, saya aktif mengajar bimbel matematika karena '
+              'saya suka membantu adik-adik memahami hal yang mereka anggap sulit. '
+              'Saya juga sedang belajar bahasa Jepang dan Inggris secara mandiri.',
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 14, height: 1.5),
+            ),
+            const SizedBox(height: 24),
           ],
         ),
       ),
